@@ -1,0 +1,205 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AGRICARE</title>
+	<link rel="stylesheet" href="{{ url_for('static', filename= 'css/style.css') }}">
+	<link rel="shortcut icon" href="{{ url_for('static', filename='images/static/main-logo.png') }}"/>
+</head>
+<body>
+    
+     <!-- Header -->
+     <header>
+        <div class="header-container">
+           <div class="header-title">
+             <!-- <img src="LOGO.png" alt="logo" width="200" height="auto"> -->
+             <h2>AGRICARE</h2>
+             <p></p>
+           </div>
+           <nav class="header-nav">
+             <ul>
+                <li><a href="{{ url_for('home') }}">Home</a></li>
+                <li><a href="{{ url_for('crop_recommend') }}">Crop Prediction</a></li>
+                <li><a href="{{ url_for('fertilizer_recommendation') }}">Fertilizer Suggestion</a></li>
+                <li><a href="#">Schemes</a>
+                    <ul>
+                      <li><a href="{{ url_for('schema') }}">Schemes by GOI</a></li>
+                      <li><a href="{{ url_for('Bank_scheme') }}">Bank Schemes by GOI</a></li>
+                    </ul>
+                  </li>
+                <li><a href="{{ url_for('disease_prediction') }}">Disease Detection</a></li>
+                <li><a href="{{ url_for('index') }}">Crop Cost Prediction</a></li>
+                <li><a href="{{ url_for('contact') }}">Contact Us</a></li> 
+             </ul>
+           </nav>
+        </div>
+    </header>
+
+        <!--                             Div -1                         -->
+    <div class="container1">
+        <div class="row">
+            <h1 class="L1">Original & Natural</h1>
+            <p class="because">Because</p>
+            <p class="Agriculture-Matters"> Agriculture Matters</p>
+            <p class="slogan">A one-stop solution for all agricultural issues</p>
+        </div>
+    </div>
+            
+             <!--                             Div -2                         -->
+
+    <div class="container2">
+        <div class="left-part" id ="#down">
+            <div class="style-1">
+				<img src="{{ url_for('static', filename='images/static/assets/style-1.png') }}" alt="style-1"/>
+            </div>
+            <div class="img-part">
+                <img src="{{ url_for('static', filename='images/static/assets/wia1.png') }}" alt="farm">
+            </div>
+            <div class="style-2">
+				<img src="{{ url_for('static', filename='images/static/assets/style-2.png') }}" alt="style-2"/>
+            </div>
+        </div>
+        <div class="right-part">
+            <div class="head">
+                <h3 class="intro-head">OUR INTRODUCTION</h3>
+                <h1 class="intro-title">What is AGRICARE?</h1>
+            </div>
+            <div class="desc">
+                <p class="intro-desc">AgriCare is a farmer friendly platform which helps farmers with the right resources, training, and opportunities to improve their yields and make their farms more sustainable. We want to help farmers create a better and more secure future for themselves and their families. By providing farmers with the right resources, training, and opportunities, we aim to empower farmers to become more sustainable and succeed in the long run. We are confident that this project will help alleviate the distress of Indian farmers and provide them with a brighter future.</p>
+            </div>
+        </div>
+    </div>
+
+             <!--                             Div -3                         -->
+    <hr color="black" >         
+    <div class="container3">
+        <div class="upper-section">
+            <div class="us-heading">
+                <h3 style="font-weight: 200;">OUR SERVICES</h3>
+                <h1>What Agricare Can Do</h1>
+            </div>
+            <div class="style-3">
+                
+                <!-- <img src="assets/style-1.png" alt="style-3"> -->
+            </div>
+        </div>
+        <div class="mid-section">
+            <div class="ms-cards card-1 glass">
+				<img src="{{ url_for('static', filename='images/static/assets/Frame 421.png') }}" alt="crop-detection"/>
+                <div class="card-text">
+                    <h3 class="card-title">Crop Prediction</h3>
+                    <a href="{{ url_for('crop_recommend') }}"><button class="card-btn" >→</button></a>
+                </div>
+            </div>
+            <div class="ms-cards card-2 glass">
+				<img src="{{ url_for('static', filename='images/static/assets/diseasedetection.png') }}" alt="Fertilizer-Prediction"/>
+                <div class="card-text">
+                    <h3 class="card-title">Fertilizer Prediction</h3>
+                    <a href="{{ url_for('fertilizer_recommendation') }}"><button class="card-btn" >→</button></a>
+                </div>
+
+            </div>
+            <div class="ms-cards card-3 glass">
+				<img src="{{ url_for('static', filename='images/static/assets/newsPortal.png') }}" alt="news-Portal"/>
+                <div class="card-text">
+                    <h3 class="card-title">Disease Detection</h3>
+                    <a href="{{ url_for('disease_prediction') }}"><button class="card-btn">→</button></a>
+                </div>
+
+            </div>
+        </div>
+        <div class="lower-section">
+            <div class="style-cont">
+                <div class="style-4"></div>
+            </div>
+            <br>
+        </div>
+    </div>
+    
+    <!--                         DIV 4                               -->
+    <div class="container4">
+		<img src="{{ url_for('static', filename='images/static/DIV-4.png') }}" alt=""/>
+    </div>
+
+
+
+    <!--                         DIV 5                               -->
+          <div class="container5">
+            <div class="box5">
+                <h1>Explore Our Features</h1>
+            </div>
+            <div class="mid">
+                <div class="crops hover-style">
+					<img src="{{ url_for('static', filename='images/Agriculture-Loan.jpg') }}" alt="Banking Scheme"/>
+                    <div class="m-content">
+                        <a href="{{ url_for('Bank_scheme') }}"><div class="text">Banking Schemes By GOI</div></a>
+                    </div>
+                </div>
+                <div class="ds hover-style">
+					<img src="{{ url_for('static', filename='images/agriculture-schemes.jpg') }}" alt="agriculture-schemes"/>
+                    <div class="m-content">
+                        <a href="{{ url_for('schema') }}"><div class="text">Schemes By GOI</div></a>
+                    </div>
+                </div>
+                <div class="news hover-style">
+					<img src="{{ url_for('static', filename='images/static/assets/stock.jpg') }}" alt="news"/>
+                    <div class="m-content">
+                        <a href="{{ url_for('index') }}"><div class="text">Cost Prediction</div></a>
+                    </div>
+                </div>
+            </div>
+            <div class="bottom">
+				<img src="{{ url_for('static', filename='images/static/assets/grass.png') }}" alt="grass"/>
+            </div>
+          </div>
+    
+
+            <!--                         FOOTER                               -->
+    <div>
+        <div class="bg-black h-96 w-full"></div>
+    </div>
+    <footer>
+        <div class="footer-container"> 
+            <div class="footer-content"> 
+                <div class="footer-column"> 
+                    <div class="footer-title">Home</div> 
+                        <a href="{{ url_for('crop_recommend') }}" class="footer-link">Crop Prediction</a> 
+                        <a href="{{ url_for('fertilizer_recommendation') }}" class="footer-link">Fertilizer Prediction</a>
+                        <a href="{{ url_for('disease_prediction') }}" class="footer-link">Disease Detection</a>
+                        <a href="{{ url_for('schema') }}" class="footer-link">Schemes by GOI</a>
+                        <a href="{{ url_for('Bank_scheme') }}" class="footer-link">bank Schemes by GOI</a>
+                    </div> 
+                <div class="footer-column"> 
+                <div class="footer-title">About</div> 
+                <a href="{{ url_for('about_us') }}" class="footer-link"> Made by: <br>Group no. 311</a> 
+            </div> 
+            <div class="footer-column"> 
+                <div class="footer-title">Help</div> 
+                <a href="{{ url_for('contact') }}" class="footer-link">Contact Us</a> 
+                <!-- <a href="#" class="footer-link">Feedback</a>  -->
+            </div> 
+
+            <div class="vl" style="border-left: 4px solid rgb(255, 255, 255);
+            height: 130px;">
+            </div>
+
+            <div class="footer-follow"> 
+                <div class="footer-follow-text">Follow us:</div> 
+                <!-- <a href="#" class="footer-follow-link">Facebook</a>  -->
+                <a href="https://github.com/anshmeshram0405" class="footer-follow-link">Github</a> 
+                <a href="https://www.linkedin.com/in/ansh-meshram-54696b220/" class="footer-follow-link">LinkedIn</a> 
+            </div> 
+        </div>
+    </footer>
+
+</body>
+</html>
+
+
+
+
+    
+
+    

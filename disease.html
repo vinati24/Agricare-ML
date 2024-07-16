@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+  	<link rel="shortcut icon" href="{{ url_for('static', filename='images/static/main-logo.png') }}"/>
+
+	<script type="text/JavaScript" src="{{ url_for('static', filename='scripts/cities.js') }}"></script>
+
+    <link href="//fonts.googleapis.com/css?family=Thasadith:400,400i,700,700i&amp;subset=latin-ext,thai,vietnamese"
+      rel="stylesheet">
+    <title>Disease Detection</title>
+</head>
+
+<style>
+  		@import url('https://fonts.googleapis.com/css2?family=Livvic:wght@200;400;600;700&display=swap');
+
+body{
+    background-color: #334B35;
+    font-family: 'Livvic', sans-serif;
+    overflow: hidden
+}
+
+*{
+    margin: 0;
+    padding: 0;
+}
+
+
+header {
+    background-color: #334B35;
+    padding: 15px 0;
+}
+
+.header-container {
+display: flex;
+justify-content: space-between;
+align-items: center;
+margin: 0 auto;
+max-width: 1450px;
+}
+
+.header-title {
+color: #ffffff;
+}
+
+.header-nav ul {
+display: flex;
+list-style-type: none;
+padding: 0;
+font-weight: 400;
+}
+
+.header-nav li {
+margin-left: 20px;
+}
+
+.header-nav a {
+color: #ffffff;
+text-decoration: none;
+/* transform: translateX(-50%);
+  transition: 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55) all; */
+  text-transform: uppercase;
+  position: relative;
+  transition: all 0.4s ease;
+  padding: 20px;
+}
+a::after { 
+    content: "";
+    position: absolute;
+    height: 2px;
+    background-color: rgb(219, 174, 52);
+    width: 0;
+    left: 50%;
+    bottom: 0;
+    transform: translateX(-50%);
+    transition: 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55) all;
+  }
+  a:hover { color: rgb(219, 174, 52); }
+
+  a:hover::after { width: 100%; }
+/* .header-nav a:hover {
+    text-decoration: underline;
+    text-decoration-color: rgb(219, 174, 52);
+    
+} */
+/* Style the dropdown menu */
+ .header-nav ul ul {
+    position: absolute;
+    display: none;
+background-color: #334B35;
+margin-top: 20px;
+padding: 0;
+}
+
+.header-nav ul ul li {
+    display:block;
+/* padding: 10px auto 10px auto; */
+margin-bottom: 25px;
+margin-right: 25px;
+}
+
+.header-nav li:hover ul {
+    display: block;
+}
+
+
+/*         FORM        */
+  
+  body {
+    /* background-image: url('https://r4.wallpaperflare.com/wallpaper/214/153/319/cornfield-wallpaper-5910e8cd614a3d7ba6b798ff4051067d.jpg'); */
+    background-image: url('static/images/BG-Disease.jpg');
+    background-size:cover ;
+  }
+
+  .btn{
+    float:right;
+    font-weight: bold;
+    border: 5px solid #555555;
+  }
+
+  html body {
+    background-color: rgb(206, 206, 228);
+  }
+</style>
+
+<body>
+    
+  <!-- Header -->
+  <header>
+    <div class="header-container">
+       <div class="header-title">
+         <!-- <img src="LOGO.png" alt="logo" width="200" height="auto"> -->
+         <h2>AGRICARE</h2>
+       </div>
+       <nav class="header-nav">
+         <ul>
+            <li><a href="{{ url_for('home') }}">Home</a></li>
+            <li><a href="{{ url_for('crop_recommend') }}">Crop Prediction</a></li>
+            <li><a href="{{ url_for('fertilizer_recommendation') }}">Fertilizer Suggestion</a></li>
+            <li><a href="#">Schemes</a>
+              <ul>
+                <li><a href="{{ url_for('schema') }}">Schemes by GOI</a></li>
+                <li><a href="{{ url_for('Bank_scheme') }}">Bank Schemes by GOI</a></li>
+              </ul>
+            </li>
+            <li><a href="{{ url_for('disease_prediction') }}">Disease Detection</a></li>
+            <li><a href="{{ url_for('index') }}">Crop Cost Prediction</a></li>
+            <li><a href="{{ url_for('contact') }}">Contact Us</a></li>
+         </ul>
+       </nav>
+    </div>
+  </header>
+
+  <!-- <style>
+    html body {
+      background-color: rgb(206, 206, 228);
+    }
+  </style> -->
+
+  <br /><br />
+    <h2 style="text-align: center; margin: 0px; color: black">
+      <b>Find out which disease has been caught by your plant</b>
+    </h2>
+    <br />
+    <br>
+
+  <div style="
+      width: 350px;
+      height: 50rem;
+      margin: 0px auto;
+      color: black;
+      border-radius: 25px;
+      padding: 10px 10px;
+      font-weight: bold;
+    ">
+
+  
+
+
+    <form class="form-signin" method=post enctype=multipart/form-data>
+
+      <h2 class="h4 mb-3 font-weight-normal"><b>Please Upload The Image</b></h2>
+      <input type="file" name="file" class="form-control-file" id="inputfile" onchange="preview_image(event)" style="font-weight: bold;">
+      <br>
+      <br>
+      <img id="output-image" class="rounded mx-auto d-block" />
+      <button class="btn btn-lg btn-primary btn-block" type="submit" style="font-weight: bold;">Predict</button>
+
+
+    </form>
+  </div>
+
+  <script type="text/javascript">
+    function preview_image(event) {
+      var reader = new FileReader();
+      reader.onload = function () {
+        var output = document.getElementById('output-image')
+        output.src = reader.result;
+      }
+      reader.readAsDataURL(event.target.files[0]);
+    }
+  </script>
+
+  </div>
+
+</body>
+</html>

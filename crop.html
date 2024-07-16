@@ -1,0 +1,507 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"
+      integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS"
+      crossorigin="anonymous"
+    /> -->
+    
+    <link
+      rel="shortcut icon"
+      href="{{ url_for('static', filename='images/static/main-logo.png') }}"
+    />
+    <script
+      type="text/JavaScript"
+      src="{{ url_for('static', filename='scripts/cities.js') }}"
+    ></script>
+
+    <link
+      href="//fonts.googleapis.com/css?family=Thasadith:400,400i,700,700i&amp;subset=latin-ext,thai,vietnamese"
+      rel="stylesheet"
+    />
+    <title>Crop Recommendation</title>
+  </head>
+
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Livvic:wght@200;400;600;700&display=swap');
+
+body{
+    background-color: #334B35;
+    font-family: 'Livvic', sans-serif;
+}
+
+*{
+    margin: 0;
+    padding: 0;
+}
+
+
+header {
+    background-color: #334B35;
+    padding: 15px 0;
+}
+
+.header-container {
+display: flex;
+justify-content: space-between;
+align-items: center;
+margin: 0 auto;
+max-width: 1500px;
+height: 50px;
+}
+
+.header-title {
+  color: #ffffff;
+  margin: 0;
+}
+
+.header-nav ul {
+display: flex;
+list-style-type: none;
+padding: 0;
+font-weight: 400;
+}
+
+.header-nav li {
+margin-left: 20px;
+}
+
+.header-nav a {
+color: #ffffff;
+text-decoration: none;
+/* transform: translateX(-50%);
+  transition: 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55) all; */
+  text-transform: uppercase;
+  position: relative;
+  transition: all 0.4s ease;
+  padding: 20px;
+}
+a::after { 
+    content: "";
+    position: absolute;
+    height: 2px;
+    background-color: rgb(219, 174, 52);
+    width: 0;
+    left: 50%;
+    bottom: 0;
+    transform: translateX(-50%);
+    transition: 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55) all;
+  }
+  a:hover { color: rgb(219, 174, 52); }
+
+  a:hover::after { width: 100%; }
+/* .header-nav a:hover {
+    text-decoration: underline;
+    text-decoration-color: rgb(219, 174, 52);
+    
+} */
+ /* Style the dropdown menu */
+ .header-nav ul ul {
+    position: absolute;
+    display: none;
+background-color: #334B35;
+margin-top: 20px;
+padding: 0;
+}
+
+.header-nav ul ul li {
+    display:block;
+/* padding: 10px auto 10px auto; */
+margin-bottom: 25px;
+margin-right: 25px;
+}
+
+.header-nav li:hover ul {
+    display: block;
+}
+
+    body {
+      background-image: url("https://r4.wallpaperflare.com/wallpaper/214/153/319/cornfield-wallpaper-5910e8cd614a3d7ba6b798ff4051067d.jpg");
+    }
+
+    /*         FORM        */
+    body {
+      background-size: cover;
+      /*background-attachment: fixed;*/
+      background-repeat: no-repeat;
+      background-size: 100% 100%;
+      font-family: "Montserrat", sans-serif;
+
+      color: white;
+    }
+
+    .form {
+      width: 50%;
+
+      background-color: rgba(41, 39, 39, 0.3);
+      border-radius: 10px;
+      margin-left: auto;
+      margin-right: auto;
+      padding: 25px;
+      max-width: 750px;
+    }
+    .form:hover {
+      transform: translateY(5px);
+      box-shadow: inset 0px 10px 20px 2px rgba(0, 0, 0, 0.25);
+    }
+
+    .title {
+      text-align: center;
+      font-size: 40px;
+    }
+
+    p {
+      text-align: center;
+      font-style: italic;
+      font-size: 20px;
+      font-weight: light;
+    }
+
+    form {
+      width: 80%;
+      max-width: 600px;
+      min-width: 300px;
+      margin: 0 auto;
+      padding-bottom: 2em;
+      font-size: 20px;
+    }
+
+    label {
+      display: block;
+      margin: 10px 0;
+      font-weight: bolder;
+    }
+
+    input[placeholder],
+    #dropdown,
+    textarea {
+      font-family: "Montserrat";
+      font-size: 15px;
+      color: #252544;
+    }
+
+    input[type="radio"],
+    input[type="checkbox"] {
+      border: 0;
+      height: 20px;
+      width: 20px;
+      margin-top: -1px;
+      vertical-align: middle;
+    }
+
+    textarea {
+      padding-top: 20px;
+    }
+
+    .write-area {
+      padding-left: 20px;
+      margin: 5px 0 0 0;
+      width: 100%;
+      min-height: 3em;
+      border-radius: 5px;
+    }
+
+    .write-input {
+      padding-left: 20px;
+      margin: 5px 0 0 0;
+      width: 96%;
+      min-height: 2.9em;
+      border-radius: 5px;
+    }
+
+    span {
+      font-size: 15px;
+      font-style: italic;
+    }
+
+    label {
+      padding: 10px;
+    }
+
+    .bt {
+      display: flex;
+      justify-content: center;
+    }
+
+    .glow-on-hover {
+      font-size: 25px;
+      margin-top: 20px;
+      width: 220px;
+      height: 50px;
+      border: none;
+      outline: none;
+      color: #fff;
+      background: #111;
+      cursor: pointer;
+      position: relative;
+      z-index: 0;
+      border-radius: 10px;
+    }
+    .glow-on-hover:before {
+      content: "";
+      background: linear-gradient(
+        45deg,
+        #ff0000,
+        #ff7300,
+        #fffb00,
+        #48ff00,
+        #00ffd5,
+        #002bff,
+        #7a00ff,
+        #ff00c8,
+        #ff0000
+      );
+      position: absolute;
+      top: -2px;
+      left: -2px;
+      background-size: 400%;
+      z-index: -1;
+      filter: blur(5px);
+      width: calc(100% + 4px);
+      height: calc(100% + 4px);
+      animation: glowing 20s linear infinite;
+      opacity: 0;
+      transition: opacity 0.3s ease-in-out;
+      border-radius: 10px;
+    }
+
+    .glow-on-hover:active {
+      color: #000;
+    }
+
+    .glow-on-hover:active:after {
+      background: transparent;
+    }
+
+    .glow-on-hover:hover:before {
+      opacity: 1;
+    }
+
+    .glow-on-hover:after {
+      z-index: -1;
+      content: "";
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      background: #111;
+      left: 0;
+      top: 0;
+      border-radius: 10px;
+    }
+    .predict{
+      text-align:center;
+      font-family: "Roboto", sans-serif;
+      font-weight:bold;
+    }
+    .out {
+      margin:0
+      
+      
+    }
+  </style>
+
+  <body>
+    <!-- Header -->
+    <!-- Header -->
+    <header>
+      <div class="header-container">
+        <div class="header-title">
+          <!-- <img src="LOGO.png" alt="logo" width="200" height="auto"> -->
+          <h2>AGRICARE</h2>
+        </div>
+        <nav class="header-nav">
+          <ul>
+            <li><a href="{{ url_for('home') }}">Home</a></li>
+            <li>
+              <a href="{{ url_for('crop_recommend') }}">Crop Prediction</a>
+            </li>
+            <li>
+              <a href="{{ url_for('fertilizer_recommendation') }}"
+                >Fertilizer Suggestion</a
+              >
+            </li>
+            <li>
+              <a href="#">Schemes</a>
+              <ul>
+                <li><a href="{{ url_for('schema') }}">Schemes by GOI</a></li>
+                <li>
+                  <a href="{{ url_for('Bank_scheme') }}">Bank Schemes by GOI</a>
+                </li>
+              </ul>
+            </li>
+            <li>
+              <a href="{{ url_for('disease_prediction') }}"
+                >Disease Detection</a
+              >
+            </li>
+            <li><a href="{{ url_for('index') }}">Crop Cost Prediction</a></li>
+            <li><a href="{{ url_for('contact') }}">Contact Us</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <div class="form">
+      <h1 class="title">Crop Recommendation System</h1>
+      <p id="description">Please Enter the Required details</p>
+
+      <form method="post" accept-charset="utf-8" name="Modelform">
+        <label id="name-label">Select the State </label>
+        <select
+          class="write-area"
+          id="state"
+          name="state"
+          required="1"
+          onchange="load_districtt(this.id,'districts')"
+        >
+          {% for state in states %}
+          <option value="{{ state }}">{{ state }}</option>
+          {% endfor %}
+        </select>
+
+        <label>Select the District</label>
+        <select
+          class="write-area"
+          id="districts"
+          name="districts"
+          required="1"
+        ></select>
+
+        <label>Select the Season </label>
+        <select class="write-area" id="season" name="season" required="1">
+          {% for ses in seasons %}
+          <option value="{{ ses }}">{{ ses }}</option>
+          {% endfor %}
+        </select>
+
+        <label>Enter the Area of the field (in acres)</label>
+        <input
+          type="text"
+          class="write-input"
+          id="area"
+          name="area"
+          placeholder="Area "
+        />
+
+        <label>Enter the Temperature (in °C) </label>
+        <input
+          type="text"
+          class="write-input"
+          id="temperature"
+          name="temperature"
+          placeholder="Temperature  "
+        />
+
+        <label>Enter the pH (0-14)</label>
+        <input
+          type="text"
+          class="write-input"
+          id="ph"
+          name="ph"
+          placeholder="pH "
+        />
+        <label>Enter the Rainfall (in mm)</label>
+        <input
+          type="text"
+          class="write-input"
+          id="rainfall"
+          name="rainfall"
+          placeholder="Rainfall"
+        />
+
+        <div class="bt">
+          <button class="glow-on-hover" onclick="send_data()">
+            Predict Crop
+          </button>
+        </div>
+      </form>
+
+      <div class="predict">
+        <div class="out" id="prediction"></div>
+      </div>
+    </div>
+
+    <script>
+        function load_districtt(state_id, districts_id) {
+          var state = document.getElementById(state_id);
+          var district = document.getElementById(districts_id);
+
+          // Clear previous options
+          district.innerHTML = "";
+
+          // If the state is not selected, do not proceed
+          if (!state.value) {
+              return;
+          }
+
+          // Loop through the states
+          {% for state in states %}
+              // Check if the selected state matches the current state in the loop
+              if ("{{ state }}" === state.value) {
+                  {% for dist in districts %}
+                      // Check if the district belongs to the selected state
+                      // Check if the district belongs to the selected state
+                      {% if state in dist %}
+                          var newOption = document.createElement("option");
+                          // Split the district name on the underscore and take the last element
+                          var districtName = "{{ dist }}".split('_').pop();
+                          var value = "{{ state }}_" + districtName;
+                          newOption.value = value;
+                          newOption.innerHTML = districtName;
+                          district.appendChild(newOption);
+                      {% endif %}
+
+                  {% endfor %}
+              }
+          {% endfor %}
+      }
+
+
+
+
+
+      function form_handler(event) {
+          event.preventDefault(); // Don't submit the form normally
+      }
+      function send_data()
+      {
+          document.querySelector('form').addEventListener("submit",form_handler);
+
+          var fd=new FormData(document.querySelector('form'));
+
+          var xhr= new XMLHttpRequest({mozSystem: true});
+
+          xhr.open('POST','/predict',true);
+          document.getElementById('prediction').innerHTML="Wait! Predicting Crop.....";
+          xhr.onreadystatechange = function(){
+              if(xhr.readyState == XMLHttpRequest.DONE){
+                  document.getElementById('prediction').innerHTML="<h1>Prediction: " + "<i>"+ xhr.responseText.charAt(0).toUpperCase()+xhr.responseText.slice(1)+"</i>" + "</h1>";
+
+              }
+          };
+
+          xhr.onload= function(){};
+
+          xhr.send(fd);
+      }
+    </script>
+
+    <script
+      src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+      integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+      integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"
+      integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>

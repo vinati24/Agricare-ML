@@ -1,0 +1,217 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="shortcut icon" href="{{ url_for('static', filename='images/static/main-logo.png') }}"/>
+    
+    <style>
+@import url('https://fonts.googleapis.com/css2?family=Livvic:wght@200;400;600;700&display=swap');
+
+      *{
+        margin: 0;
+        padding: 0;
+      }
+      
+      header {
+      background-color: #334B35;
+      padding: 15px 0;
+      font-family: 'Livvic', sans-serif;
+
+      }
+      
+      .header-container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin: 0 auto;
+      max-width: 1400px;
+      }
+      
+      .header-title {
+      color: #ffffff;
+      }
+      
+      .header-nav ul {
+      display: flex;
+      list-style-type: none;
+      padding: 0;
+      }
+      
+      .header-nav li {
+      margin-left: 20px;
+      }
+      
+      .header-nav a {
+      color: #ffffff;
+      text-decoration: none;
+      text-transform: uppercase;
+      position: relative;
+      transition: all 0.4s ease;
+      padding: 20px;
+      }
+      a::after { 
+        content: "";
+        position: absolute;
+        height: 2px;
+        background-color: rgb(219, 174, 52);
+        width: 0;
+        left: 50%;
+        bottom: 0;
+        transform: translateX(-50%);
+        transition: 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55) all;
+      }
+      a:hover { color: rgb(219, 174, 52); }
+      
+      a:hover::after { width: 100%; }
+
+      /* Style the dropdown menu */
+    .header-nav ul ul {
+        position: absolute;
+        display: none;
+    background-color: #334B35;
+    margin-top: 20px;
+    padding: 0;
+    }
+
+    .header-nav ul ul li {
+        display:block;
+    /* padding: 10px auto 10px auto; */
+    margin-bottom: 25px;
+    margin-right: 25px;
+    }
+
+    .header-nav li:hover ul {
+        display: block;
+    }
+
+/*  ********************************** BODY ***************************************  */
+ body {
+  font-family: Arial, sans-serif;
+  line-height: 1.6;
+}
+
+main h2 {
+  background-color: #f4f4f49c;
+  padding: 20px;
+  text-align: center;
+  font-size: 35px;
+  margin-top:0px;
+}
+
+.team {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.member {
+  font-family: Arial, sans-serif;
+  margin: 20px;
+  text-align: center;
+}
+
+.team img {
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  object-fit: cover;
+}     
+
+</style>
+
+    
+    <title>About_us</title>
+  </head>
+  <body>
+
+<!-- Header -->
+<header>
+  <div class="header-container">
+     <div class="header-title">
+       <!-- <img src="LOGO.png" alt="logo" width="200" height="auto"> -->
+       <h2>AGRICARE</h2>
+       <p></p>
+     </div>
+     <nav class="header-nav">
+       <ul>
+        <li><a href="{{ url_for('home') }}">Home</a></li>
+        <li><a href="{{ url_for('crop_recommend') }}">Crop Prediction</a></li>
+        <li><a href="{{ url_for('fertilizer_recommendation') }}">Fertilizer Suggestion</a></li>
+        <li><a href="#">Schemes</a>
+          <ul>
+            <li><a href="{{ url_for('schema') }}">Schemes by GOI</a></li>
+            <li><a href="{{ url_for('Bank_scheme') }}">Bank Schemes by GOI</a></li>
+          </ul>
+        </li>
+        <li><a href="{{ url_for('disease_prediction') }}">Disease Detection</a></li>
+        <li><a href="{{ url_for('index') }}">Crop Cost Prediction</a></li>
+        <li><a href="{{ url_for('contact') }}">Contact Us</a></li>
+       </ul>
+     </nav>
+  </div>
+</header>
+
+
+<main>
+  <h2>Meet the Team</h2>
+  <section class="team">
+      
+      <div class="member">
+				  <img src="{{ url_for('static', filename='images/static/Bitmoji/Ansh Bitmoji.png') }}" alt="Ansh Meshram"/>
+          <h3>Ansh Meshram</h3>
+      </div>
+
+      <!-- Member 2 -->
+      <div class="member">
+				  <img src="{{ url_for('static', filename='images/static/Bitmoji/Risshi bitmoji.png') }}" alt="Risshi kudeshia"/>
+          <h3>Risshi kudeshia</h3>
+      </div>
+
+      <!-- Member 3 -->
+      <div class="member">
+				  <img src="{{ url_for('static', filename='images/static/Bitmoji/div bitmoji.png') }}" alt="Divyansh Gabra"/>
+          <h3>Divyansh Gabra</h3>
+      </div>
+
+      <!-- Member 4 -->
+      <div class="member">
+				  <img src="{{ url_for('static', filename='images/static/Bitmoji/Abhi bitmoji.png') }}" alt="Abhyuday Sharma"/>
+          <h3>Abhyuday Sharma</h3>
+      </div>
+
+      <!-- Member 5 -->
+      <div class="member">
+				  <img src="{{ url_for('static', filename='images/static/Bitmoji/anupam bitmoji.png') }}" alt="Anupam Srivastav"/>
+          <h3>Anupam Srivastav</h3>
+      </div>
+
+      <!-- Member 6 -->
+      <div class="member">
+				  <img src="{{ url_for('static', filename='images/static/Bitmoji/priyank bitmoji.png') }}" alt="Priyank Ashra"/>
+          <h3>Priyank Ashra</h3>
+      </div>
+
+      <!-- Member 7 -->
+      <div class="member">
+				  <img src="{{ url_for('static', filename='images/static/Bitmoji/bitmoji1.png') }}" alt="Asmi Ahirrao"/>
+          <h3>Asmi Ahirrao</h3>
+      </div>
+
+      <!-- Member 8 -->
+      <div class="member">
+				  <img src="{{ url_for('static', filename='images/static/Bitmoji/bitmoji2.png') }}" alt="Vinati Nathwani"/>
+          <h3>Vinati Nathwani</h3>
+      </div>
+
+      <!-- Member 9 -->
+      <div class="member">
+				  <img src="{{ url_for('static', filename='images/static/Bitmoji/bitmoji3.png') }}" alt="Janhavi Bhoyar"/>
+          <h3>Janhavi Bhoyar</h3>
+      </div>
+  </section>
+</main>
+
+  </body>
+</html>
